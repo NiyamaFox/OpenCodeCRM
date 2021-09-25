@@ -10,17 +10,10 @@ import java.io.IOException;
 
 @WebServlet(name = "LogoutController", urlPatterns = "/logout")
 public class LogoutController extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        HttpSession session = req.getSession();
-
-        session.removeAttribute("login");
-        session.removeAttribute("password");
-        session.removeAttribute("role");
-
         req.getSession().invalidate();
-
         resp.sendRedirect("/login");
     }
 }

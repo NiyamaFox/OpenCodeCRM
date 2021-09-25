@@ -2,9 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page isELIgnored="false" %>
-<html>
+<!DOCTYPE html>
+<html lang="ru">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="resources/css/styles.css">
 
@@ -17,7 +20,7 @@
         <span class="title-system">Система управления студентами и их успеваемостью</span>
     </header>
 
-    <a class="to-main-page" href="/">На главную</a>
+    <a class="to-main-page" href="/index.jsp">На главную</a>
 
     <h3>Вход в систему: </h3>
     <form method="post" action="/login">

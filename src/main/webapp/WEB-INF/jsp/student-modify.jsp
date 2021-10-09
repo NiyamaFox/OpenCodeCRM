@@ -40,10 +40,10 @@
     <h3>Для модифицирования студента отредактируйте все поля и нажмите кнопку "Модифицировать"</h3>
     <form method="post" action="/student-modify">
         <input type="hidden" name="idStudent" value="${student.id}">
-        <label>Фамилия</label> <input type="text" name="surname" value="${student.surname}">
-        <label>Имя</label> <input type="text" name="name" value="${student.name}">
-        <label>Группа</label> <input type="text" name="group" value="${student.group}">
-        <label>Дата поступления</label> <input type="text" id="datepicker" name="date" value="${student.date}">
+        <label>Фамилия</label> <input type="text" name="surname" value="${student.surname}"><br>
+        <label>Имя</label> <input type="text" name="name" value="${student.name}"><br>
+        <label>Группа</label> <input type="text" name="group" value="${student.group}"><br>
+        <label>Дата поступления</label> <input type="text" id="datepicker" name="date" value="${student.date}"><br>
         <input type="submit" value="Модифицировать">
 
         <c:if test="${error eq 1}">

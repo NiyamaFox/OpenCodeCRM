@@ -130,4 +130,43 @@ public class DBManager {
             e.printStackTrace();
         }
     }
+
+    public static void createDiscipline(String discipline) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
+            Statement stmt = conn.createStatement();
+            stmt.execute("INSERT INTO `students`.`discipline` (`discipline`) VALUES ('" + discipline + "');");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Discipline getDisciplineById(String id) {
+        Discipline discipline = new Discipline();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM discipline where status = '1' AND id = " + id);
+            while (rs.next()) {
+                discipline.setId(rs.getInt("id"));
+                discipline.setDiscipline(rs.getString("discipline"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return discipline;
+    }
+
+    public static void modifyDiscipline(String id, String discipline) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
+            Statement stmt = conn.createStatement();
+            stmt.execute("UPDATE `students`.`discipline` SET `discipline` = '"+discipline+"' WHERE (`id` = '"+id+"');");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -36,13 +36,14 @@
     </header>
 
     <a class="to-main-page" href="/index.jsp">На главную</a>
+    <a class="to-main-page" href="/students">Назад</a>
 
     <h3>Для создания студента заполните все поля и нажмите кнопку "Создать"</h3>
     <form method="post" action="/create-student">
-        <label>Фамилия</label> <input type="text" name="surname">
-        <label>Имя</label> <input type="text" name="name">
-        <label>Группа</label> <input type="text" name="group">
-        <label>Дата поступления</label> <input type="text" id="datepicker" name="date">
+        <label>Фамилия</label> <input type="text" name="surname"><br>
+        <label>Имя</label> <input type="text" name="name"><br>
+        <label>Группа</label> <input type="text" name="group"><br>
+        <label>Дата поступления</label> <input type="text" id="datepicker" name="date"><br>
         <input type="submit" value="Создать">
 
         <c:if test="${error eq 1}">

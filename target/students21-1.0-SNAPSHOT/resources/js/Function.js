@@ -31,3 +31,21 @@ function modifyStudent() {
     $('#modifyStudentHidden').val(id);
     $('#modifyStudentForm').submit();
 }
+
+function modifyDiscipline() {
+    var checkedBoxes = document.querySelectorAll('input[type=checkbox]:checked');
+
+    if (checkedBoxes.length == 0) {
+        alert("Выберите хотя бы одну дисциплину!");
+        return;
+    }
+    if (checkedBoxes.length > 1) {
+        alert("Выберите только одну дисциплину!");
+        return;
+    }
+
+    var id = checkedBoxes[0].getAttribute("value");
+
+    $('#modifyDisciplineHidden').val(id);
+    $('#modifyDisciplineForm').submit();
+}

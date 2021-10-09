@@ -30,38 +30,27 @@
 
     <a class="to-main-page" href="/index.jsp">На главную</a>
 
-    <div class="stud-list-page">
-        <ul class="students-list">
-            <li>
-                <div>
+        <div class="students-list">
+            <span>
                     <input type="submit" value="Просмотреть успеваемость выбранных студентов">
-                </div>
-            </li>
+            </span>
             <c:if test="${role == 1}">
-                <li>
-                    <div>
+                <span>
                         <form action="/create-student" method="get">
-                            <input type="submit" value="Создать студента">
+                            <input type="submit" value="Создать студента"><br>
                         </form>
-                    </div>
-                </li>
-                <li>
-                    <div>
+                </span>
+                <span>
                         <input type="submit" value="Модифицировать выбранного студента" onclick="modifyStudent()">
-                    </div>
-                </li>
-                <li>
-                    <div>
+                </span>
+                <span>
                         <input type="submit" value="Удалить выбранных студентов" onclick="deleteStudent()">
-                    </div>
-                </li>
+                </span>
             </c:if>
-        </ul>
     </div>
 
-
-    <div>
-        <h3>Список студентов</h3>
+    <h3>Список студентов</h3>
+    <div class="scroll">
         <table>
             <tr>
                 <th></th>

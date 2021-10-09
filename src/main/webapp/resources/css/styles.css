@@ -7,7 +7,9 @@
 }
 
 body {
-    background-color: #eeeeee;
+    background-image: url("../images/background.jpg");
+    background-position: center;
+    background-size: inherit;
     font-family: 'Comic-sans';
 }
 
@@ -20,7 +22,6 @@ body {
     max-width: 850px;
     min-width: 400px;
     margin: 0px auto;
-    border: 1px solid black;
 }
 
 .title {
@@ -68,6 +69,16 @@ body {
 .students-list {
     list-style: none;
     padding-left: 0;
+}
+
+.scroll {
+    overflow-y: scroll;
+    height: 350px;
+    min-height: 300px;
+}
+
+form {
+    display: inline;
 }
 
 @media (max-width: 515px) {

@@ -23,58 +23,53 @@
                 <a class="title-logout" href="/logout">Выйти из ${login}</a>
             </c:when>
             <c:otherwise>
-                <a href="/login">Войти</a>
+                <a class="title-logout" href="/login">Войти</a>
             </c:otherwise>
         </c:choose>
     </header>
 
-    <a class="to-main-page" href="/index.jsp">На главную</a><br>
+    <a class="to-main-page" href="/">На главную</a><br>
 
-    <span>Список дисциплин</span>
-        <table>
+    <div class="students-list">
+        <c:if test="${role == 1}">
+            <span>
+                <form action="/discipline-create" method="get">
+                    <input class="createDiscipline" type="submit" value="Создать дисциплину"><br>
+                </form>
+            </span>
+            <span>
+                <input class="modifyDisciplines" type="submit" value="Модифицировать выбранную дисциплину" onclick="modifyDiscipline()"><br>
+            </span>
+            <span>
+                <input class="deleteDisciplines" type="submit" value="Удалить выбранные дисциплины" onclick="deleteDiscipline()">
+            </span>
+        </c:if>
+    </div>
+
+    <h3 class="listOfSomething">Список дисциплин</h3>
+    <div class="scroll">
+        <table class="tableDisciplines">
             <tr>
                 <th></th>
-                <th>Наименование дисциплины</th>
+                <th class="nameDiscipline">Наименование дисциплины</th>
             </tr>
 
             <c:forEach items="${disciplines}" var="d">
                 <tr>
-                    <c:if test="${role == 1}">
-                        <td><input type="checkbox" value="${d.id}"></td>
-                    </c:if>
-                    <td>${d.discipline}</td>
+                    <td><input type="checkbox" value="${d.id}"></td>
+                    <td class="tableWithoutCheckboxes">${d.discipline}</td>
                 </tr>
             </c:forEach>
         </table>
 
-    <div class="stud-list-page">
-        <ul class="students-list">
-            <c:if test="${role == 1}">
-                <li>
-                    <div>
-                        <form action="/discipline-create" method="get">
-                            <input type="submit" value="Создать дисциплину">
-                        </form>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <input type="submit" value="Модифицировать выбранную дисциплину" onclick="modifyDiscipline()">
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <input type="submit" value="Удалить выбранную дисциплину" onclick="">
-                    </div>
-                </li>
-            </c:if>
-        </ul>
+        <form action="/disciplines" method="post" id="deleteDisciplineForm">
+            <input id="deleteDisciplineHidden" type="hidden" name="deleteDisciplineHidden">
+        </form>
+
+        <form action="/discipline-modify" method="get" id="modifyDisciplineForm">
+            <input type="hidden" id="modifyDisciplineHidden" name="modifyDisciplineHidden">
+        </form>
     </div>
-
-    <form action="/discipline-modify" method="get" id="modifyDisciplineForm">
-        <input type="hidden" id="modifyDisciplineHidden" name="modifyDisciplineHidden">
-    </form>
-
 </div>
 </body>
 </html>

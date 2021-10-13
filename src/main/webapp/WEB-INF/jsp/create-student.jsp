@@ -30,21 +30,21 @@
                 <a class="title-logout" href="/logout">Выйти из ${login}</a>
             </c:when>
             <c:otherwise>
-                <a href="/login">Войти</a>
+                <a class="title-logout" href="/login">Войти</a>
             </c:otherwise>
         </c:choose>
     </header>
 
-    <a class="to-main-page" href="/index.jsp">На главную</a>
+    <a class="to-main-page" href="/">На главную</a>
     <a class="to-main-page" href="/students">Назад</a>
 
-    <h3>Для создания студента заполните все поля и нажмите кнопку "Создать"</h3>
+    <h4 class="sign">Чтобы создать студента, заполните все поля и нажмите кнопку "Создать":</h4>
     <form method="post" action="/create-student">
-        <label>Фамилия</label> <input type="text" name="surname"><br>
-        <label>Имя</label> <input type="text" name="name"><br>
-        <label>Группа</label> <input type="text" name="group"><br>
-        <label>Дата поступления</label> <input type="text" id="datepicker" name="date"><br>
-        <input type="submit" value="Создать">
+        <label>Фамилия</label> <input class="inputSurname" type="text" name="surname"><br>
+        <label>Имя</label> <input class="inputName" type="text" name="name"><br>
+        <label>Группа</label> <input class="inputGroup" type="text" name="group"><br>
+        <label>Дата поступления</label> <input class="inputDate" type="text" id="datepicker" name="date"><br>
+        <input class="inputButton" type="submit" value="Создать">
 
         <c:if test="${error eq 1}">
             <h4>Поля не должны быть пустыми!</h4>

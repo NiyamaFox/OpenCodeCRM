@@ -26,19 +26,19 @@
                 <a class="title-logout" href="/logout">Выйти из ${login}</a>
             </c:when>
             <c:otherwise>
-                <a href="/login">Войти</a>
+                <a class="title-logout" href="/login">Войти</a>
             </c:otherwise>
         </c:choose>
     </header>
 
-    <a class="to-main-page" href="/index.jsp">На главную</a>
+    <a class="to-main-page" href="/">На главную</a>
     <a class="to-main-page" href="/disciplines">Назад</a>
 
 
-    <h3>Для создания дисциплины заполните все поля и нажмите кнопку "Создать"</h3>
+    <h4 class="sign">Чтобы создать дисциплину, заполните поле и нажмите кнопку "Создать":</h4>
     <form method="post" action="/discipline-create">
         <label>Название</label> <input type="text" name="discipline"><br>
-        <input type="submit" value="Создать">
+        <input class="discButton" type="submit" value="Создать">
 
         <c:if test="${error eq 1}">
             <h4>Поля не должны быть пустыми!</h4>

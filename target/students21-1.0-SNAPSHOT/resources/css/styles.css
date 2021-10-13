@@ -32,6 +32,7 @@ body {
     text-align: center;
     position: relative;
     left: 22px;
+    padding-bottom: 16px;
 }
 
 .title-system {
@@ -55,7 +56,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 44px;
 }
 
 .sdt-item {
@@ -75,10 +76,150 @@ body {
     overflow-y: scroll;
     height: 350px;
     min-height: 300px;
+    border: 3px outset;
 }
 
 form {
     display: inline;
+}
+
+.nameDiscipline {
+    text-align: start;
+}
+
+.listOfSomething {
+    text-align: center;
+    padding: 10px
+}
+
+.viewStudents {
+    padding: 2px 5px;
+}
+
+.modifyStudents {
+    padding: 2px 37px;
+}
+
+.createStudent {
+    padding: 2px 45px;
+}
+
+.deleteStudents {
+    padding: 2px 5px;
+}
+
+.createDiscipline {
+    padding: 2px 71px;
+}
+
+.modifyDisciplines {
+    padding: 2px 5px;
+}
+
+.deleteDisciplines {
+    padding: 2px 32px;
+}
+
+.inputLogPass {
+    padding: 2px;
+}
+
+.justEnter {
+    padding: 2px 33px
+}
+
+.enterSystem {
+    padding: 10px 0px;
+}
+
+.tableStudents {
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 3px;
+    background: darkseagreen;
+    border: 1px solid;
+    width: 100%;
+}
+
+.tableDisciplines {
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 3px;
+    background: darkseagreen;
+    border: 1px solid;
+}
+
+th {
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+    background: lavender;
+}
+
+.tableWithoutCheckboxes {
+    width: 100%;
+}
+
+.discButton {
+    padding: 1px 55px;
+    margin: 0 75px;
+    margin-top: 4px;
+    border: 3px outset;
+    border-color: cadetblue;
+    background-color: silver;
+    font-size: 15px;
+}
+
+.discButtonTwo {
+    padding: 1px 45px;
+    margin: 0 75px;
+    margin-top: 4px;
+    border: 3px outset;
+    border-color: cadetblue;
+    background-color: silver;
+    font-size: 15px;
+}
+
+.sign {
+    padding: 10px 0px;
+}
+
+.inputSurname {
+    margin-left: 105px;
+}
+
+.inputName {
+    margin-left: 142px;
+}
+
+.inputGroup {
+    margin-left: 119px;
+}
+
+.inputDate {
+    margin-left: 33px;
+}
+
+.inputButton {
+    margin-left: 179px;
+    padding: 4px 55px;
+    margin-top: 4px;
+    border: 3px outset;
+    border-color: cadetblue;
+    background-color: silver;
+    font-size: 15px;
+}
+
+.inputButtonTwo {
+    margin-left: 179px;
+    padding: 4px 44px;
+    margin-top: 4px;
+    border: 3px outset;
+    border-color: cadetblue;
+    background-color: silver;
+    font-size: 15px;
 }
 
 @media (max-width: 515px) {
@@ -87,7 +228,7 @@ form {
     }
 }
 
-@media (max-width: 741px) {
+@media (max-width: 866px) {
     .title {
         position: static;
     }

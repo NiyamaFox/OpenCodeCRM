@@ -49,3 +49,19 @@ function modifyDiscipline() {
     $('#modifyDisciplineHidden').val(id);
     $('#modifyDisciplineForm').submit();
 }
+
+function deleteDiscipline() {
+    var checkedBoxes = document.querySelectorAll('input[type=checkbox]:checked');
+
+    if (checkedBoxes.length == 0) {
+        alert("Выберите хотя бы одну дисциплину!");
+        return;
+    }
+
+    var ids = "";
+    for (var i = 0; i < checkedBoxes.length; i++) {
+        ids = ids + checkedBoxes[i].getAttribute("value") + ".";
+    }
+    $('#deleteDisciplineHidden').val(ids);
+    $('#deleteDisciplineForm').submit();
+}

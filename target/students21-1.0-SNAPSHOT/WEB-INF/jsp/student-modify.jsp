@@ -29,22 +29,22 @@
                 <a class="title-logout" href="/logout">Выйти из ${login}</a>
             </c:when>
             <c:otherwise>
-                <a href="/login">Войти</a>
+                <a class="title-logout" href="/login">Войти</a>
             </c:otherwise>
         </c:choose>
     </header>
 
-    <a class="to-main-page" href="/index.jsp">На главную</a>
+    <a class="to-main-page" href="/">На главную</a>
     <a class="to-main-page" href="/students">Назад</a>
 
-    <h3>Для модифицирования студента отредактируйте все поля и нажмите кнопку "Модифицировать"</h3>
+    <h4 class="sign">Чтобы редактировать студента, введите новые значения и нажмите кнопку "Применить":</h4>
     <form method="post" action="/student-modify">
         <input type="hidden" name="idStudent" value="${student.id}">
-        <label>Фамилия</label> <input type="text" name="surname" value="${student.surname}"><br>
-        <label>Имя</label> <input type="text" name="name" value="${student.name}"><br>
-        <label>Группа</label> <input type="text" name="group" value="${student.group}"><br>
-        <label>Дата поступления</label> <input type="text" id="datepicker" name="date" value="${student.date}"><br>
-        <input type="submit" value="Модифицировать">
+        <label>Фамилия</label> <input class="inputSurname" type="text" name="surname" value="${student.surname}"><br>
+        <label>Имя</label> <input class="inputName" type="text" name="name" value="${student.name}"><br>
+        <label>Группа</label> <input class="inputGroup" type="text" name="group" value="${student.group}"><br>
+        <label>Дата поступления</label> <input class="inputDate" type="text" id="datepicker" name="date" value="${student.date}"><br>
+        <input class="inputButtonTwo" type="submit" value="Применить">
 
         <c:if test="${error eq 1}">
             <h4>Поля не должны быть пустыми!</h4>

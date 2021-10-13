@@ -21,7 +21,7 @@
                 <a class="title-logout" href="/logout">Выйти из ${login}</a>
             </c:when>
             <c:otherwise>
-                <a href="/login">Войти</a>
+                <a class="title-logout" href="/login">Войти</a>
             </c:otherwise>
         </c:choose>
     </header>

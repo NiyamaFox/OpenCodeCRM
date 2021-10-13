@@ -23,35 +23,35 @@
                 <a class="title-logout" href="/logout">Выйти из ${login}</a>
             </c:when>
             <c:otherwise>
-                <a href="/login">Войти</a>
+                <a class="title-logout" href="/login">Войти</a>
             </c:otherwise>
         </c:choose>
     </header>
 
-    <a class="to-main-page" href="/index.jsp">На главную</a>
+    <a class="to-main-page" href="/">На главную</a>
 
-        <div class="students-list">
+    <div class="students-list">
             <span>
-                    <input type="submit" value="Просмотреть успеваемость выбранных студентов">
+                <input class="viewStudents" type="submit" value="Просмотреть успеваемость выбранных студентов">
             </span>
-            <c:if test="${role == 1}">
+        <c:if test="${role == 1}">
                 <span>
-                        <form action="/create-student" method="get">
-                            <input type="submit" value="Создать студента"><br>
-                        </form>
+                    <form action="/create-student" method="get">
+                        <input class="createStudent" type="submit" value="Создать студента"><br>
+                    </form>
                 </span>
-                <span>
-                        <input type="submit" value="Модифицировать выбранного студента" onclick="modifyStudent()">
-                </span>
-                <span>
-                        <input type="submit" value="Удалить выбранных студентов" onclick="deleteStudent()">
-                </span>
-            </c:if>
+            <span>
+                <input class="modifyStudents" type="submit" value="Модифицировать выбранного студента" onclick="modifyStudent()">
+            </span>
+            <span>
+                <input class="deleteStudents" type="submit" value="Удалить выбранных студентов" onclick="deleteStudent()">
+            </span>
+        </c:if>
     </div>
 
-    <h3>Список студентов</h3>
+    <h3 class="listOfSomething">Список студентов</h3>
     <div class="scroll">
-        <table>
+        <table class="tableStudents">
             <tr>
                 <th></th>
                 <th>Фамилия</th>

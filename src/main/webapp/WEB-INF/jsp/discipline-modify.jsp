@@ -25,19 +25,19 @@
                 <a class="title-logout" href="/logout">Выйти из ${login}</a>
             </c:when>
             <c:otherwise>
-                <a href="/login">Войти</a>
+                <a class="title-logout" href="/login">Войти</a>
             </c:otherwise>
         </c:choose>
     </header>
 
-    <a class="to-main-page" href="/index.jsp">На главную</a>
+    <a class="to-main-page" href="/">На главную</a>
     <a class="to-main-page" href="/disciplines">Назад</a>
 
-    <h3>Для модифицирования дисциплины отредактируйте все поля и нажмите кнопку "Модифицировать"</h3>
+    <h4 class="sign">Чтобы редактировать дисциплину, введите новое значение и нажмите кнопку "Применить":</h4>
     <form method="post" action="/discipline-modify">
         <input type="hidden" name="idDiscipline" value="${discipline.id}">
-        <label>Наименование дисциплины</label> <input type="text" name="discipline" value="${discipline.discipline}"><br>
-        <input type="submit" value="Модифицировать">
+        <label>Название</label> <input type="text" name="discipline" value="${discipline.discipline}"><br>
+        <input class="discButtonTwo" type="submit" value="Применить">
 
         <c:if test="${error eq 1}">
             <h4>Поля не должны быть пустыми!</h4>

@@ -2,6 +2,7 @@ package database;
 
 import entity.Discipline;
 import entity.Student;
+import entity.Term;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -168,5 +169,35 @@ public class DBManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void deleteDiscipline(String id) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
+            Statement stmt = conn.createStatement();
+            stmt.execute("UPDATE `discipline` SET `status` = '0' WHERE (`id` = '" + id + "');");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Term> getAllActiveTerms() {
+        ArrayList<Term> terms = new ArrayList<Term>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM term where status = '1'");
+            while (rs.next()) {
+                Term term = new Term();
+                term.setId(rs.getInt("id"));
+                term.setDuration(rs.getString("duration"));
+                terms.add(term);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return terms;
     }
 }

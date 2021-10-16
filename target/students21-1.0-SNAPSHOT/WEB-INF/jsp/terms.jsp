@@ -29,7 +29,71 @@
     </header>
 
     <a class="to-main-page" href="/">На главную</a><br>
+    <div class="students-list">
+        <c:if test="${role == 1}">
+            <span>
+                <form action="/term-create" method="get">
+                    <input class="createTerm" type="submit" value="Создать семестр">
+                </form>
+            </span>
+            <span>
+                <input class="modifyTerm" type="submit" value="Модифицировать текущий семестр" onclick="modifyTerm()">
+            </span>
+            <span>
+                <input class="deleteTerm" type="submit" value="Удалить текущий семестр" onclick="deleteTerm()">
+            </span>
+        </c:if>
+    </div>
 
+    <label>Выбрать семестр: </label>
+    <select name="term">
+        <option value="1">Семестр 1</option>
+        <option value="2">Семестр 2</option>
+    </select>
+    <input class="justEnter" type="submit" value="Выбрать">
+
+    <h4>Длительность семестра: </h4>
+    <h3 class="listOfSomething">Список дисциплин семестра</h3>
+
+    <div class="scroll">
+        <table class="tableTerms">
+            <tr>
+                <th class="nameTerm">Наименование дисциплины</th>
+            </tr>
+            <tr>
+                <td>Высшая математика</td>
+            </tr>
+            <tr>
+                <td>Русский язык</td>
+            </tr>
+            <tr>
+                <td>Информатика</td>
+            </tr>
+            <tr>
+                <td>Геометрия</td>
+            </tr>
+            <tr>
+                <td>Менеджмент организаций</td>
+            </tr>
+            <tr>
+                <td>Стратегический менеджмент</td>
+            </tr>
+            <tr>
+                <td>Вёрстка сайтов</td>
+            </tr>
+            <tr>
+                <td>Что-то ещё такое</td>
+            </tr>
+        </table>
+
+        <form action="/terms" method="post" id="deleteTermForm">
+            <input id="deleteTermHidden" type="hidden" name="deleteTermHidden">
+        </form>
+
+        <form action="/term-modify" method="get" id="modifyTermForm">
+            <input type="hidden" id="modifyTermHidden" name="modifyTermHidden">
+        </form>
+    </div>
 
 </div>
 </div>

@@ -20,7 +20,7 @@ public class StudentCreateController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("WEB-INF/jsp/create-student.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/jsp/student-create.jsp").forward(req, resp);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class StudentCreateController extends HttpServlet {
 
         if (surname.isEmpty() || name.isEmpty() || group.isEmpty() || dateFromUser.isEmpty()){
             req.setAttribute("error", "1");
-            req.getRequestDispatcher("WEB-INF/jsp/create-student.jsp").forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/jsp/student-create.jsp").forward(req, resp);
             return;
         }
 

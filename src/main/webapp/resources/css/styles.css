@@ -222,6 +222,15 @@ td {
     font-size: 15px;
 }
 
+.tableTerms {
+    width: 100%;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 3px;
+    background: darkseagreen;
+    border: 1px solid;
+}
+
 @media (max-width: 515px) {
     .title {
         padding: 0px 0px;

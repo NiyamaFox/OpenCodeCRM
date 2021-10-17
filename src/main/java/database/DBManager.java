@@ -165,7 +165,7 @@ public class DBManager {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
             Statement stmt = conn.createStatement();
-            stmt.execute("UPDATE `students`.`discipline` SET `discipline` = '"+discipline+"' WHERE (`id` = '"+id+"');");
+            stmt.execute("UPDATE `students`.`discipline` SET `discipline` = '" + discipline + "' WHERE (`id` = '" + id + "');");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -192,12 +192,53 @@ public class DBManager {
             while (rs.next()) {
                 Term term = new Term();
                 term.setId(rs.getInt("id"));
-                term.setDuration(rs.getString("duration"));
+                term.setName("Семестр " + rs.getInt("id"));
+                term.setDuration(rs.getInt("duration") + " недель");
                 terms.add(term);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return terms;
+    }
+
+    public static List<Discipline> getAllActiveDisciplinesByTerm(String idTerm) {
+        ArrayList<Discipline> disciplines = new ArrayList<Discipline>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT td.id_discipline as id, d.discipline as name FROM term_discipline as td\n" +
+                    "left join discipline as d on td.id_discipline = d.id\n" +
+                    "WHERE td.id_term = " + idTerm + " AND d.status = '1'");
+            while (rs.next()) {
+                Discipline discipline = new Discipline();
+                discipline.setId(rs.getInt("id"));
+                discipline.setDiscipline(rs.getString("name"));
+                disciplines.add(discipline);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return disciplines;
+    }
+
+    public static Term getTermById(String id) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM term where status = '1'and id = " + id );
+            while (rs.next()) {
+                Term term = new Term();
+                term.setId(rs.getInt("id"));
+                term.setName("Семестр " + rs.getInt("id"));
+                term.setDuration(rs.getInt("duration") + " недель");
+                return term;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

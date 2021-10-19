@@ -38,10 +38,9 @@
                 </form>
             </span><br>
             <span>
-                <input class="modifyTerm" type="submit" value="Модифицировать текущий семестр" onclick="modifyTerm()">
-            </span><br>
-            <span>
-                <input class="deleteTerm" type="submit" value="Удалить текущий семестр" onclick="deleteTerm()">
+                <form action="/terms" method="post">
+                <input class="deleteTerm" type="submit" value="Удалить текущий семестр">
+                </form>
             </span>
         </c:if>
     </div>
@@ -61,7 +60,8 @@
             </c:forEach>
         </select>
         <input class="justEnterTerms" type="submit" value="Выбрать">
-    </form><br>
+    </form>
+    <br>
 
     <label>Длительность семестра: ${selectedTerm.duration}</label>
 
@@ -78,16 +78,7 @@
                 </tr>
             </c:forEach>
         </table>
-
-        <form action="/terms" method="post" id="deleteTermForm">
-            <input id="deleteTermHidden" type="hidden" name="deleteTermHidden">
-        </form>
-
-        <form action="/term-modify" method="get" id="modifyTermForm">
-            <input type="hidden" id="modifyTermHidden" name="modifyTermHidden">
-        </form>
     </div>
-
 </div>
 </div>
 </body>

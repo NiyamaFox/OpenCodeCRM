@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-@WebServlet (name = "StudentModifyController", urlPatterns = "/student-modify")
+@WebServlet(name = "StudentModifyController", urlPatterns = "/student-modify")
 public class StudentModifyController extends HttpServlet {
 
     @Override
@@ -34,13 +34,13 @@ public class StudentModifyController extends HttpServlet {
         String group = req.getParameter("group");
         String dateFromUser = req.getParameter("date");
 
-        if (surname.isEmpty() || name.isEmpty() || group.isEmpty() || dateFromUser.isEmpty()){
+        if (surname.isEmpty() || name.isEmpty() || group.isEmpty() || dateFromUser.isEmpty()) {
             req.setAttribute("error", "1");
             req.getRequestDispatcher("WEB-INF/jsp/student-create.jsp").forward(req, resp);
             return;
         }
 
-        DateFormat format = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
+       /* DateFormat format = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
         Date date = null;
         try {
             date = format.parse(dateFromUser);
@@ -49,17 +49,16 @@ public class StudentModifyController extends HttpServlet {
         }
 
         SimpleDateFormat formatDB = new SimpleDateFormat("yyyy-MM-dd");
-        String dateToDB = formatDB.format(date);
+        String dateToDB = formatDB.format(date);*/
 
         Student student = new Student();
         student.setId(Integer.parseInt(id));
         student.setName(name);
         student.setSurname(surname);
         student.setGroup(group);
-        student.setDate(dateToDB);
+        student.setDate(dateFromUser);
 
         DBManager.modifyStudent(student);
         resp.sendRedirect("/students");
-
     }
 }

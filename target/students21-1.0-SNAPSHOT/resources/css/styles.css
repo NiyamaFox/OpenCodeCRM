@@ -70,6 +70,7 @@ body {
 .students-list {
     list-style: none;
     padding-left: 0;
+    padding: 7px 0px;
 }
 
 .scroll {
@@ -97,15 +98,15 @@ form {
 }
 
 .modifyStudents {
-    padding: 2px 37px;
+    padding: 2px 6px;
 }
 
 .createStudent {
-    padding: 2px 45px;
+    padding: 2px 74px;
 }
 
 .deleteStudents {
-    padding: 2px 5px;
+    padding: 2px 33px;
 }
 
 .createDiscipline {
@@ -229,6 +230,48 @@ td {
     border-spacing: 3px;
     background: darkseagreen;
     border: 1px solid;
+}
+
+.modifyTerm {
+    padding: 2px 5px;
+}
+
+.deleteTerm {
+    padding: 2px 34px;
+}
+
+.createTerm {
+    padding: 2px 62px;
+}
+
+.termSelect {
+    padding: 1px 27px;
+    background-color: gainsboro;
+    border: double;
+}
+
+.justEnterTerms {
+    padding: 2px 11px;
+    background: gainsboro;
+    border: double;
+}
+
+.joinDate {
+    width: 38%;
+}
+
+.checks {
+    width: 13px;
+}
+
+.termButton {
+    margin-left: -1px;
+    padding: 4px 31px;
+    margin-top: 4px;
+    border: 3px outset;
+    border-color: cadetblue;
+    background-color: silver;
+    font-size: 15px;
 }
 
 @media (max-width: 515px) {

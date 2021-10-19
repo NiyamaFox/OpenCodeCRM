@@ -228,7 +228,50 @@ public class DBManager {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM term where status = '1'and id = " + id );
+            ResultSet rs = stmt.executeQuery("SELECT * FROM term where status = '1'and id = " + id);
+            while (rs.next()) {
+                Term term = new Term();
+                term.setId(rs.getInt("id"));
+                term.setName("Семестр " + rs.getInt("id"));
+                term.setDuration(rs.getInt("duration") + " недель");
+                return term;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void createTerm(String duration) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
+            Statement stmt = conn.createStatement();
+            stmt.execute("INSERT INTO `students`.`term` (`duration`) VALUES ('" + duration + "');");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addDisciplinesToTerm(String term, String discipline) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
+            Statement stmt = conn.createStatement();
+            stmt.execute("INSERT INTO `term_discipline` (`id_term`, `id_discipline`) " +
+                    "VALUES ('" + term + "', '" + discipline + "');");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Term getLastTermById() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM students.term WHERE status = '1'and id=(SELECT max(id) FROM term);");
             while (rs.next()) {
                 Term term = new Term();
                 term.setId(rs.getInt("id"));

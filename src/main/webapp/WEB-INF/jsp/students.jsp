@@ -31,20 +31,19 @@
     <a class="to-main-page" href="/">На главную</a>
 
     <div class="students-list">
-            <span>
-                <input class="viewStudents" type="submit" value="Просмотреть успеваемость выбранных студентов">
-            </span>
         <c:if test="${role == 1}">
                 <span>
-                    <form action="/create-student" method="get">
-                        <input class="createStudent" type="submit" value="Создать студента"><br>
+                    <form action="/student-create" method="get">
+                        <input class="createStudent" type="submit" value="Создать студента">
                     </form>
-                </span>
+                </span><br>
             <span>
-                <input class="modifyStudents" type="submit" value="Модифицировать выбранного студента" onclick="modifyStudent()">
-            </span>
+                <input class="modifyStudents" type="submit" value="Модифицировать выбранного студента"
+                       onclick="modifyStudent()">
+            </span><br>
             <span>
-                <input class="deleteStudents" type="submit" value="Удалить выбранных студентов" onclick="deleteStudent()">
+                <input class="deleteStudents" type="submit" value="Удалить выбранных студентов"
+                       onclick="deleteStudent()">
             </span>
         </c:if>
     </div>
@@ -57,12 +56,12 @@
                 <th>Фамилия</th>
                 <th>Имя</th>
                 <th>Группа</th>
-                <th>Дата поступления</th>
+                <th class="joinDate">Дата поступления (гггг-мм-дд)</th>
             </tr>
 
             <c:forEach items="${students}" var="st">
                 <tr>
-                    <td><input type="checkbox" value="${st.id}"></td>
+                    <td class="checks"><input type="checkbox" value="${st.id}"></td>
                     <td>${st.surname}</td>
                     <td>${st.name}</td>
                     <td>${st.group}</td>

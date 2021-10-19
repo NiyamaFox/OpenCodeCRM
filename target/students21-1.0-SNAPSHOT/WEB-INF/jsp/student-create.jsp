@@ -39,7 +39,7 @@
     <a class="to-main-page" href="/students">Назад</a>
 
     <h4 class="sign">Чтобы создать студента, заполните все поля и нажмите кнопку "Создать":</h4>
-    <form method="post" action="/create-student">
+    <form method="post" action="/student-create">
         <label>Фамилия</label> <input class="inputSurname" type="text" name="surname"><br>
         <label>Имя</label> <input class="inputName" type="text" name="name"><br>
         <label>Группа</label> <input class="inputGroup" type="text" name="group"><br>

@@ -98,15 +98,15 @@ form {
 }
 
 .modifyStudents {
-    padding: 2px 37px;
+    padding: 2px 6px;
 }
 
 .createStudent {
-    padding: 2px 45px;
+    padding: 2px 74px;
 }
 
 .deleteStudents {
-    padding: 2px 5px;
+    padding: 2px 33px;
 }
 
 .createDiscipline {
@@ -256,6 +256,23 @@ td {
     border: double;
 }
 
+.joinDate {
+    width: 38%;
+}
+
+.checks {
+    width: 13px;
+}
+
+.termButton {
+    margin-left: -1px;
+    padding: 4px 31px;
+    margin-top: 4px;
+    border: 3px outset;
+    border-color: cadetblue;
+    background-color: silver;
+    font-size: 15px;
+}
 
 @media (max-width: 515px) {
     .title {

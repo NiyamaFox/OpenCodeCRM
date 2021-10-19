@@ -32,4 +32,9 @@ public class TermsController extends HttpServlet {
         }
         req.getRequestDispatcher("WEB-INF/jsp/terms.jsp").forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }
 }

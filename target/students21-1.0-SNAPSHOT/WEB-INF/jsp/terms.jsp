@@ -29,30 +29,42 @@
     </header>
 
     <a class="to-main-page" href="/">На главную</a><br>
+
     <div class="students-list">
         <c:if test="${role == 1}">
             <span>
                 <form action="/term-create" method="get">
                     <input class="createTerm" type="submit" value="Создать семестр">
                 </form>
-            </span>
+            </span><br>
             <span>
-                <input class="modifyTerm" type="submit" value="Модифицировать текущий семестр" onclick="modifyTerm()">
-            </span>
-            <span>
-                <input class="deleteTerm" type="submit" value="Удалить текущий семестр" onclick="deleteTerm()">
+                <form action="/terms" method="post">
+                <input class="deleteTerm" type="submit" value="Удалить текущий семестр">
+                </form>
             </span>
         </c:if>
     </div>
 
-    <label>Выбрать семестр: </label>
-    <select name="term">
-        <option value="1">Семестр 1</option>
-        <option value="2">Семестр 2</option>
-    </select>
-    <input class="justEnter" type="submit" value="Выбрать">
+    <form action="/terms" method="get">
+        <label>Выбрать семестр</label>
+        <select class="termSelect" name="idSelected">
+            <c:forEach items="${terms}" var="t">
+                <c:choose>
+                    <c:when test="${t.id == selectedTerm.id}">
+                        <option selected value="${t.id}">${t.name}</option>
+                    </c:when>
+                    <c:otherwise>
+                        <option value="${t.id}">${t.name}</option>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+        </select>
+        <input class="justEnterTerms" type="submit" value="Выбрать">
+    </form>
+    <br>
 
-    <h4>Длительность семестра: </h4>
+    <label>Длительность семестра: ${selectedTerm.duration}</label>
+
     <h3 class="listOfSomething">Список дисциплин семестра</h3>
 
     <div class="scroll">
@@ -60,41 +72,13 @@
             <tr>
                 <th class="nameTerm">Наименование дисциплины</th>
             </tr>
-            <tr>
-                <td>Высшая математика</td>
-            </tr>
-            <tr>
-                <td>Русский язык</td>
-            </tr>
-            <tr>
-                <td>Информатика</td>
-            </tr>
-            <tr>
-                <td>Геометрия</td>
-            </tr>
-            <tr>
-                <td>Менеджмент организаций</td>
-            </tr>
-            <tr>
-                <td>Стратегический менеджмент</td>
-            </tr>
-            <tr>
-                <td>Вёрстка сайтов</td>
-            </tr>
-            <tr>
-                <td>Что-то ещё такое</td>
-            </tr>
+            <c:forEach items="${disciplines}" var="d">
+                <tr>
+                    <td>${d.discipline}</td>
+                </tr>
+            </c:forEach>
         </table>
-
-        <form action="/terms" method="post" id="deleteTermForm">
-            <input id="deleteTermHidden" type="hidden" name="deleteTermHidden">
-        </form>
-
-        <form action="/term-modify" method="get" id="modifyTermForm">
-            <input type="hidden" id="modifyTermHidden" name="modifyTermHidden">
-        </form>
     </div>
-
 </div>
 </div>
 </body>

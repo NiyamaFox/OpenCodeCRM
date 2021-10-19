@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-@WebServlet(name = "StudentCreateController", urlPatterns = "/create-student")
+@WebServlet(name = "StudentCreateController", urlPatterns = "/student-create")
 public class StudentCreateController extends HttpServlet {
 
     @Override

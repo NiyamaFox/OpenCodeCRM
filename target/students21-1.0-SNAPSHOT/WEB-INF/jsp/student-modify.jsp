@@ -43,7 +43,7 @@
         <label>Фамилия</label> <input class="inputSurname" type="text" name="surname" value="${student.surname}"><br>
         <label>Имя</label> <input class="inputName" type="text" name="name" value="${student.name}"><br>
         <label>Группа</label> <input class="inputGroup" type="text" name="group" value="${student.group}"><br>
-        <label>Дата поступления</label> <input class="inputDate" type="text" id="datepicker" name="date" value="${student.date}"><br>
+        <label>Дата поступления</label> <input class="inputDate" type="text" name="date" value="${student.date}"><br>
         <input class="inputButtonTwo" type="submit" value="Применить">
 
         <c:if test="${error eq 1}">

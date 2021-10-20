@@ -38,10 +38,12 @@
                 </form>
             </span>
             <span>
-                <input class="modifyDisciplines" type="submit" value="Модифицировать выбранную дисциплину" onclick="modifyDiscipline()"><br>
+                <input class="modifyDisciplines" type="submit" value="Модифицировать выбранную дисциплину"
+                       onclick="modifyDiscipline()"><br>
             </span>
             <span>
-                <input class="deleteDisciplines" type="submit" value="Удалить выбранные дисциплины" onclick="deleteDiscipline()">
+                <input class="deleteDisciplines" type="submit" value="Удалить выбранные дисциплины"
+                       onclick="deleteDiscipline()">
             </span>
         </c:if>
     </div>
@@ -50,14 +52,18 @@
     <div class="scroll">
         <table class="tableDisciplines">
             <tr>
-                <th></th>
+                <c:if test="${role == 1}">
+                    <th></th>
+                </c:if>
                 <th class="nameDiscipline">Наименование дисциплины</th>
             </tr>
 
             <c:forEach items="${disciplines}" var="d">
                 <tr>
-                    <td><input type="checkbox" value="${d.id}"></td>
-                    <td class="tableWithoutCheckboxes">${d.discipline}</td>
+                    <c:if test="${role == 1}">
+                        <td class="checks"><input type="checkbox" value="${d.id}"></td>
+                    </c:if>
+                    <td>${d.discipline}</td>
                 </tr>
             </c:forEach>
         </table>

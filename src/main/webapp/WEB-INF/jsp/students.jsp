@@ -52,7 +52,9 @@
     <div class="scroll">
         <table class="tableStudents">
             <tr>
+                <c:if test="${role == 1}">
                 <th></th>
+                </c:if>
                 <th>Фамилия</th>
                 <th>Имя</th>
                 <th>Группа</th>
@@ -61,7 +63,9 @@
 
             <c:forEach items="${students}" var="st">
                 <tr>
+                    <c:if test="${role == 1}">
                     <td class="checks"><input type="checkbox" value="${st.id}"></td>
+                    </c:if>
                     <td>${st.surname}</td>
                     <td>${st.name}</td>
                     <td>${st.group}</td>

@@ -142,12 +142,18 @@ form {
     width: 100%;
 }
 
+.nonLoginBoxes {
+    width: 0px;
+    empty-cells: hide;
+}
+
 .tableDisciplines {
     text-align: left;
     border-collapse: separate;
     border-spacing: 3px;
     background: darkseagreen;
     border: 1px solid;
+    width: 100%;
 }
 
 th {
@@ -157,10 +163,6 @@ th {
 td {
     padding: 10px;
     background: lavender;
-}
-
-.tableWithoutCheckboxes {
-    width: 100%;
 }
 
 .discButton {
@@ -224,12 +226,12 @@ td {
 }
 
 .tableTerms {
-    width: 100%;
     text-align: left;
     border-collapse: separate;
     border-spacing: 3px;
     background: darkseagreen;
     border: 1px solid;
+    width: 100%;
 }
 
 .modifyTerm {

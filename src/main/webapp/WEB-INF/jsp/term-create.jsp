@@ -36,6 +36,7 @@
 
     <h4 class="sign">Чтобы создать семестр, заполните поле, выберите дисциплины и нажмите кнопку "Создать"</h4>
     <form id="createTermForm" method="post" action="/term-create">
+        <label>Семестр №: </label><input type="text" name="name"><br>
         <label>Длительность (в неделях)</label> <input type="text" name="duration"><br>
         <h3 class="listOfSomething">Дисциплины в семестре</h3>
         <div class="scroll">

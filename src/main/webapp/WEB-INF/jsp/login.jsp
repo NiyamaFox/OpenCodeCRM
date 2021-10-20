@@ -10,7 +10,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="resources/css/styles.css">
-
     <title>Войти</title>
 </head>
 
@@ -33,6 +32,13 @@
             <option value="3">Студент</option>
         </select>
         <input class="justEnter" type="submit" value="Войти">
+        <div>
+            <details>
+                <summary class="testAcc">Аккаунт для проверки функционала :</summary>
+                <span>Логин : admin </span><br>
+                <span>Пароль : 123</span>
+            </details>
+        </div>
 
         <c:if test="${error eq 1}">
             <h4>Поля не должны быть пустыми!</h4>

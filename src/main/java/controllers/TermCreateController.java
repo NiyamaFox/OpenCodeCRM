@@ -25,14 +25,16 @@ public class TermCreateController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String durationTerm = req.getParameter("duration");
-        if (durationTerm.isEmpty()) {
+        String nameTerm = req.getParameter("name");
+        if (durationTerm.isEmpty() || nameTerm.isEmpty()) {
             req.setAttribute("error", "1");
             req.getRequestDispatcher("WEB-INF/jsp/term-create.jsp").forward(req, resp);
             return;
         }
 
-        DBManager.createTerm(durationTerm);
+        DBManager.createTerm(durationTerm, nameTerm);
         req.setAttribute("durationTerm", durationTerm);
+        req.setAttribute("nameTerm", nameTerm);
 
         String ids = req.getParameter("createTermHidden");
         String[] idsToTerm = ids.split("\\.");

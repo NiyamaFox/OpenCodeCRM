@@ -39,6 +39,7 @@
             </span><br>
             <span>
                 <form action="/terms" method="post">
+                    <input type="hidden" name="idTerm" value="${selectedTerm.id}">
                 <input class="deleteTerm" type="submit" value="Удалить текущий семестр">
                 </form>
             </span>

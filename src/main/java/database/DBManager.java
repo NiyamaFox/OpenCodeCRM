@@ -192,7 +192,7 @@ public class DBManager {
             while (rs.next()) {
                 Term term = new Term();
                 term.setId(rs.getInt("id"));
-                term.setName("Семестр " + rs.getInt("id"));
+                term.setName("Семестр " + rs.getInt("name"));
                 term.setDuration(rs.getInt("duration") + " недель");
                 terms.add(term);
             }
@@ -232,7 +232,7 @@ public class DBManager {
             while (rs.next()) {
                 Term term = new Term();
                 term.setId(rs.getInt("id"));
-                term.setName("Семестр " + rs.getInt("id"));
+                term.setName("Семестр " + rs.getInt("name"));
                 term.setDuration(rs.getInt("duration") + " недель");
                 return term;
             }
@@ -242,12 +242,12 @@ public class DBManager {
         return null;
     }
 
-    public static void createTerm(String duration) {
+    public static void createTerm(String duration, String name) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
             Statement stmt = conn.createStatement();
-            stmt.execute("INSERT INTO `students`.`term` (`duration`) VALUES ('" + duration + "');");
+            stmt.execute("INSERT INTO `students`.`term` (`duration`, `name`) VALUES ('" + duration + "', '" + name + "');");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -275,7 +275,7 @@ public class DBManager {
             while (rs.next()) {
                 Term term = new Term();
                 term.setId(rs.getInt("id"));
-                term.setName("Семестр " + rs.getInt("id"));
+                term.setName("Семестр " + rs.getInt("name"));
                 term.setDuration(rs.getInt("duration") + " недель");
                 return term;
             }
@@ -283,5 +283,18 @@ public class DBManager {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void deleteTermWithDisciplines(String id) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?user=root&password=c49voc8h");
+            Statement stmt = conn.createStatement();
+            stmt.execute("SELECT * FROM term_discipline WHERE (`id_term` = '" + id + "');");
+            stmt.execute("DELETE FROM term_discipline WHERE (`id_term` = '" + id + "');");
+            stmt.execute("DELETE FROM `students`.`term` WHERE (`id` = '" + id + "');");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

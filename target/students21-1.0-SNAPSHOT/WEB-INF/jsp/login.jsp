@@ -32,13 +32,6 @@
             <option value="3">Студент</option>
         </select>
         <input class="justEnter" type="submit" value="Войти">
-        <div>
-            <details>
-                <summary class="testAcc">Аккаунт для проверки функционала :</summary>
-                <span>Логин : admin </span><br>
-                <span>Пароль : 123</span>
-            </details>
-        </div>
 
         <c:if test="${error eq 1}">
             <h4>Поля не должны быть пустыми!</h4>
@@ -47,8 +40,13 @@
         <c:if test="${error eq 2}">
             <h4>Такой пользователь не найден!</h4>
         </c:if>
-
     </form>
+    <div>
+        <details class="testAcc">
+            <summary class="buttonTestAcc">Тестовый аккаунт</summary>
+            <span class="listTestAcc">Логин: "admin", Пароль: "123"</span>
+        </details>
+    </div>
 </div>
 </body>
 </html>

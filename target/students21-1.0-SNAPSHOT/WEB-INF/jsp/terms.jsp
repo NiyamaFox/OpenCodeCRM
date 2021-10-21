@@ -40,14 +40,13 @@
             <span>
                 <form action="/terms" method="post">
                     <input type="hidden" name="idTerm" value="${selectedTerm.id}">
-                <input class="deleteTerm" type="submit" value="Удалить текущий семестр">
+                <input class="deleteTerm" type="submit" value="Удалить текущий семестр" onclick = "return confirm('Вы уверены?')">
                 </form>
             </span>
         </c:if>
     </div>
 
     <form action="/terms" method="get">
-        <label>Выбрать семестр</label>
         <select class="termSelect" name="idSelected">
             <c:forEach items="${terms}" var="t">
                 <c:choose>
@@ -64,9 +63,10 @@
     </form>
     <br>
 
-    <label>Длительность семестра: ${selectedTerm.duration}</label>
+    <div class="chooseTerm">(Выберите семестр и нажмите кнопку "Выбрать")</div>
+    <label class="durationTerm">Длительность семестра: </label><label class="weeksTerm">${selectedTerm.duration}</label>
 
-    <h3 class="listOfSomething">Список дисциплин семестра</h3>
+    <h3 class="listOfSomething">Список дисциплин (<label>${selectedTerm.name}</label>)</h3>
 
     <div class="scroll">
         <table class="tableTerms">

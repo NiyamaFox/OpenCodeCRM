@@ -192,7 +192,7 @@ public class DBManager {
             while (rs.next()) {
                 Term term = new Term();
                 term.setId(rs.getInt("id"));
-                term.setName("Семестр " + rs.getInt("name"));
+                term.setName("Семестр №" + rs.getInt("name"));
                 term.setDuration(rs.getInt("duration") + " недель");
                 terms.add(term);
             }
@@ -232,7 +232,7 @@ public class DBManager {
             while (rs.next()) {
                 Term term = new Term();
                 term.setId(rs.getInt("id"));
-                term.setName("Семестр " + rs.getInt("name"));
+                term.setName("Семестр №" + rs.getInt("name"));
                 term.setDuration(rs.getInt("duration") + " недель");
                 return term;
             }
@@ -275,7 +275,7 @@ public class DBManager {
             while (rs.next()) {
                 Term term = new Term();
                 term.setId(rs.getInt("id"));
-                term.setName("Семестр " + rs.getInt("name"));
+                term.setName("Семестр №" + rs.getInt("name"));
                 term.setDuration(rs.getInt("duration") + " недель");
                 return term;
             }

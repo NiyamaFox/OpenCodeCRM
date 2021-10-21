@@ -70,7 +70,7 @@ body {
 .students-list {
     list-style: none;
     padding-left: 0;
-    padding: 11px 0px;
+    padding-top: 11px;
 }
 
 .scroll {
@@ -126,7 +126,9 @@ form {
 }
 
 .justEnter {
-    padding: 2px 33px
+    padding: 2px 33px;
+    background-color: seashell;
+    cursor: pointer;
 }
 
 .enterSystem {
@@ -247,7 +249,7 @@ td {
 }
 
 .termSelect {
-    padding: 1px 27px;
+    padding: 1px 20px;
     background-color: gainsboro;
     border: double;
 }
@@ -269,15 +271,57 @@ td {
 .termButton {
     margin-left: -1px;
     padding: 4px 31px;
-    margin-top: 4px;
+    margin-top: 8px;
     border: 3px outset;
     border-color: cadetblue;
     background-color: silver;
     font-size: 15px;
+    position: fixed;
 }
 
 .testAcc {
     margin-top: 15px;
+    position: fixed;
+}
+
+.buttonTestAcc {
+    border: outset;
+    background-color: darkgray;
+    cursor: pointer;
+    padding: 2px 53px;
+}
+
+.listTestAcc {
+    border: 1px;
+    padding: 1px 8px;
+    background-color: gainsboro;
+}
+
+details > summary {
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none
+}
+
+.chooseTerm {
+    font-style: italic;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.durationTerm {
+    color: ghostwhite;
+}
+
+.weeksTerm {
+    color: greenyellow;
+}
+
+.durationTermCreate {
+    padding: 2px 16px;
+    border: 2px solid;
 }
 
 @media (max-width: 515px) {

@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class DBManager {
@@ -29,6 +30,7 @@ public class DBManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        disciplines.sort(Comparator.comparing(discipline -> discipline.getDiscipline()));
         return disciplines;
     }
 
@@ -51,6 +53,7 @@ public class DBManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        students.sort(Comparator.comparing(student -> student.getSurname()));
         return students;
     }
 
@@ -220,6 +223,7 @@ public class DBManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        disciplines.sort(Comparator.comparing(discipline -> discipline.getDiscipline()));
         return disciplines;
     }
 
